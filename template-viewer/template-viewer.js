@@ -10,13 +10,19 @@ class TemplateViewer extends HTMLElement {
     set layout(value) {
         this.setAttribute('layout', value);
     }
-
+    connectedCallback() {
+        const templateSelector = document.getElementById('template-selector');
+        templateSelector.addEventListener('change', (event) => {
+            const valueSelected = event.target.value;
+            this.layout = valueSelected;
+        });
+    }
     attributeChangedCallback(name, oldValue, newValue) {
         if (name === 'layout') {
-        this.innerHTML = '';
-        const template = document.getElementById(newValue);
-        const clone = template.content;
-        this.appendChild(clone);
+            this.innerHTML = '';
+            const template = document.getElementById(newValue);
+            const clone = template.content;
+            this.appendChild(clone);
         }
     }
 }
