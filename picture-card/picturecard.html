@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Picture Card</title>
+  <script src="./picture-card.js"></script>
+</head>
+<body>
+  <div id="root">
+    <picture-card>
+      <img slot="image"
+        src="https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-1.2.1&dpr=2&auto=format&fit=crop&w=416&h=312&q=60"
+        width="200px">
+      </img>
+      <p>Retro TV Picture</p>
+      <p>By: Photo by Ajeet Mestry on Unsplash</p>
+    </picture-card>
+    <picture-card>
+      <img slot="image"
+        src="https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60"
+        width="200px">
+      </img>
+      <p>Yellow Gameboy</p>
+      
+      <p>By: Photo by Mike Meyers on Unsplash</p>
+    </picture-card>
+    <picture-card></picture-card>
+
+    <template id="unique">
+      <style>
+        .container {
+            border-radius: 4px;
+            width: 350px;
+            height: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            -webkit-box-shadow: 8px 9px 24px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 8px 9px 24px 0px rgba(0,0,0,0.75);
+            box-shadow: 8px 9px 24px 0px rgba(0,0,0,0.75);
+            margin-bottom: 2rem;
+        }
+        .circle {
+            min-width: 200px;
+            min-height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }      
+      </style>
+      <div class="container">
+        <h3>This heading will always be displayed</h3>
+        <div class="circle">
+          <slot name="image">&lt;image&gt;</slot>
+        </div>
+        <div>
+            <slot class="content-container">
+              <p>Caption</p>
+              <p>By: Someone</p>
+            </slot>
+        </div>
+      </div>
+    </template>
+    <script>
+        const template = document.getElementById('unique');
+        const pictureCard = document.getElementsByTagName('picture-card')
+        for (let index = 0; index < pictureCard.length; index++) {
+            const element = pictureCard.item(index);
+            const templateClone = template.content.cloneNode(true);
+            element.shadowRoot.appendChild(templateClone);   
+        }
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./template-viewer.styles.css">
+  <script src="./template-viewer.js"></script>
+  <title>Template Viewer</title>
+</head>
+<body>
+  <div id="root">
+    <select id="template-selector" style="margin-bottom: 10px;">
+      <option value="first">First Layout</option>
+      <option value="second">Second Layout</option>
+      <option value="third">Third Layout</option>
+    </select>
+
+    <template-viewer ></template-viewer>
+    <template id="first">
+      <div class="container">
+        <div class="circle">
+          <!-- image place holder -->
+        </div>
+        <div class="name-container">
+          <p class="name">Billy Bob</p>
+          <p class="email">bill@bob.com</p>
+        </div>
+      </div>
+    </template>
+    <template id="second">
+      <div class="container">
+        <div class="circle">
+          <!-- image place holder -->
+        </div>
+        <div class="name-container">
+          <p class="name">Jimmy Jumpin' Jiminy</p>
+          <p class="email">jj@jiminy.com</p>
+        </div>
+      </div>
+    </template>
+    <template id="third">
+      <div class="container">
+        <div class="circle">
+          <!-- image place holder -->
+        </div>
+        <div class="name-container">
+          <p class="name">Sir Jay J. Jamison</p>
+          <p class="email">jj@jamison.com</p>
+        </div>
+      </div>
+    </template>
+    <script src="./template-viewer.behavior.js"></script>
+  </div>
+</body>
+</html>

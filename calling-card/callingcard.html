@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calling card</title>
+    <script src="./calling-card.js"></script>
+</head>
+<body>
+    <div>
+        <label for="calling-card-text">Calling card text</label>
+    </div>
+    <input type="text" name="calling-card-text" id="calling-card-text" placeholder="John Doe">
+    <div style="margin-top: 1rem;">
+        <calling-card  number="0703455217" name="Olof Olofsson"></calling-card>
+    </div>
+    <script>
+        const callingCard = document.querySelector('calling-card')
+        document.getElementById('calling-card-text').addEventListener('input', (e) => callingCard.name = e.target.value )
+    </script>
+</body>
+</html>
